@@ -30,10 +30,22 @@ class _SigninState extends State<Signin> {
   return user;
 }
 
+ Future<void> signOut() async {
+    final googleSignIn = GoogleSignIn();
+    await googleSignIn.signOut();
+    await FirebaseAuth.instance.signOut();
+    print("Logout successful");
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Home")
+        
+      ),
+      body: Container(
       color: Colors.white,
       padding: EdgeInsets.all(4),
       child: OutlinedButton.icon(
@@ -42,8 +54,9 @@ class _SigninState extends State<Signin> {
           label: Text("Sign In with Google",
       style: TextStyle(fontWeight: FontWeight.bold)
       ),
-      )
-      
+      ),
+      ),
+      floatingActionButton: FloatingActionButton(onPressed: signOut, child:Text("Logout")),
     );
   }
 }
