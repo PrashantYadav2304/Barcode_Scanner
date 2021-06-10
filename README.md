@@ -1,6 +1,6 @@
 # yukthi
 
-A new Flutter project.
+A Barcode scanner application using flutter with firebase ml vision and image picker library.
 
 ## Getting Started
 
